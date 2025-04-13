@@ -1,0 +1,19 @@
+Destructorn:
+Om eventqueue är tom så deletas de fiskar som inte har blivit tillfångatagna.
+
+Run:
+Under tiden som kön inte är tom, sätter nästa event till toppen av kön och poppar översta eventet i kön och simulerar eventet. Om simulationTime inte överstrider simulation_horizon. Om simulationtime överstrider simulation_horizon så dras eventet tillbaka och eventet deleteas och loopas sedon om.
+
+Scheduleevent:
+Köar nästa event i kön.
+
+harvestTonnageNow:
+Skapar en ny vector för fiskar. Kollar om varje fisk har blivit fångad om den inte är fångad kollas det om fisken är död. Om så är fallet deletas fisken annars läggs fisken in i den nya vectorn för levande fiskar.
+Clearar tidigare vectorn med fiskar. Loopar sedan för antalet fiskar i vectorn och landing(så många fiskar som fångats) är lägre än det önskade antalet fångade fiskar. Kollar sedan om fisken kan fångas dvs är tillräckligt stor, då plussas landing med ett. Kollar om fisken är en ungdom eller vuxen och drar bort fisken från den gruppen och markerar fisken som fången. Annars pushar man tillbaka den fisken till andra vectorn som håller alla fiskar.
+
+Experimentering:
+Både Landing och min_catchable_age gör så att fiskebseståndet kollapsar vid en viss gräns. Om Landing och min_catchable_age varieras till extremvärden samtidigtkollapsar inte fiskebeståndet vid samma gräns som när bara en av variablerna varieras. Vilket är rimligt då gränsen för att man får fiska fiskar ökar och även fiskandet ökar, dvs det finns en större mängd fiskar som får fiskas som gör att fiskebeståndet inte rubbas.
+
+Inge minnesläckor funna.
+
+För MyVector och MyPriorityQueue gick det 7 sekunder snabbare. Vilket beror på att tidskomplexiteten utan dem är O(n) istället för O(1). 

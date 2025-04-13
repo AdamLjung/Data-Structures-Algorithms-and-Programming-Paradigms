@@ -1,0 +1,10 @@
+#include <QApplication>
+#include <QGraphicsView>
+#include <QGraphicsScene>
+#include <fstream>
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <chrono>
+#include "Point.h"
+#include <map>
